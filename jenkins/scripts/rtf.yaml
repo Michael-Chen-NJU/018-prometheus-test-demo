@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: rtf
-  namespace: cn202006
+  namespace: nju18
   labels:
     app: rtf
 spec:
@@ -19,9 +19,9 @@ spec:
         - name: rtf
           image: python
           command: ["/bin/sh"]
-          args: ["-c", 'curl "http://p.nju.edu.cn/portal_io/login" --data "username=181250090&password=willy229liu" && curl https://raw.githubusercontent.com/1Lucifer1/Cloud_Native_Project/master/jenkins/scripts/rtf.robot -o /tmp/rtf.robot && pip install requests && pip install robotframework && robot /tmp/rtf.robot']
+          args: ["-c", 'curl "http://p.nju.edu.cn/portal_io/login" --data "username=181250090&password=willy229liu" && curl https://raw.githubusercontent.com/Michael-Chen-NJU/018-prometheus-test-demo/master/jenkins/scripts/rtf.robot -o /tmp/rtf.robot && pip install requests && pip install robotframework && robot /tmp/rtf.robot']
       imagePullSecrets:
-        - name: cn202006
+        - name: nju18
 ---
 apiVersion: v1
 kind: Service
@@ -29,7 +29,7 @@ metadata:
   labels:
     app: rtf
   name: rtf
-  namespace: cn202006
+  namespace: nju18
 spec:
   ports:
     - name: tcp
