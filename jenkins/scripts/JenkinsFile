@@ -8,7 +8,7 @@ pipeline {
             }
             steps {
                 echo "1. Git Clone Stage"
-                git url: "https://github.com/Michael-Chen-NJU/018-prometheus-test-demo.git"
+                git url: "https://github.com/Michael-Chen-NJU/Cloud_Native_Project.git"
 
             }
 
@@ -66,7 +66,7 @@ node('slave') {
             sh 'curl "http://p.nju.edu.cn/portal_io/login" --data "username=181250090&password=willy229liu"'
         }
         stage('Git Clone') {
-            git url: "https://github.com/Michael-Chen-NJU/018-prometheus-test-demo.git"
+            git url: "https://github.com/Michael-Chen-NJU/Cloud_Native_Project.git"
 
         }
         stage('YAML') {
